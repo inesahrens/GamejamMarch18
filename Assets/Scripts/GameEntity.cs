@@ -4,9 +4,14 @@ using UnityEngine;
 
 public abstract class GameEntity : MonoBehaviour {
 
+    public GameController gameController;
+    public Vector2Int position;
+
     void Awake()
     {
-        FindObjectOfType<GameController>().entities.Add(this);
+        position = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        gameController = FindObjectOfType<GameController>();
+        gameController.register(this);
     }
 
     public abstract void Act();
