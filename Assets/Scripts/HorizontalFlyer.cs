@@ -23,8 +23,7 @@ public class HorizontalFlyer : GameEntity {
     public void turn()
     {
         right = !right;
-        GetComponentInChildren<SpriteRenderer>().flipX = !right;
-        Debug.Log(right);
+        GetComponent<SpriteRenderer>().flipX = !right;
     }
 
  
